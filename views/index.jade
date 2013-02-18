@@ -1,6 +1,9 @@
 extends layout
 
 block content
+	#logo
+		img(src="/images/logo.png")
+	h1 SmackOverflow
 	#about
 		h3 Goodbye Cruel World!
 		p This is a user-submitted insult site focused on tech-related smack-downs. It's 100% free and we dare you to insult eachother!
@@ -12,6 +15,16 @@ block content
 			li: h3 New
 	.smack
 		span.upimg 
-			img(href="upvote.png")
+			img(src="/images/upvote.png")
 		span.votes 70
 		span.text Josh is dumb
+	.smack
+		span.upimg 
+			img(src="/images/upvote.png")
+		span.votes 50
+		span.text Steve is dumb
+	.smack
+		span.upimg 
+			img(src="/images/upvote.png")
+		span.votes 30
+		span.text Forrest is dumb
