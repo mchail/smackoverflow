@@ -1,8 +1,65 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 50px;
+	font: 14px;
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }
 
 a {
-  color: #00B7FF;
+	color: #00B7FF;
+}
+
+#logo {
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+#logo h1 {
+	display: inline;
+}
+
+#logo img {
+	width: 64px;
+}
+
+#about {
+	float: right;
+	width: 240px;
+	padding: 10px;
+	border: 2px solid;
+	border-radius: 25px;
+	box-shadow: 6px 6px 3px #888888;
+}
+
+#submit {
+	width: 280px;
+	padding: 6px;
+	border: 2px solid;
+	border-radius: 15px;
+	background-color:pink;
+}
+
+.smack {
+	display: inline-block;
+	width: 540px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 2px solid;
+	border-radius: 15px;
+}
+
+.smack img {
+	width: 32px;
+}
+
+.smack .votes {
+	display: inline-block;
+	font-size: 36pt; 
+	font-style: italic;
+}
+
+.smack .text {
+	display: inline-block;
+	width: 400px;
+	margin-left: 10px;
 }
