@@ -8,35 +8,16 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , MongoClient = require('mongodb').MongoClient
+  , mongoose = require('mongoose')
   , format = require('util').format;
 
+var smack = require('./models/smack.js');
 
 
-var url = process.env.MONGOURL || "mongodb://localhost:27017/smackoverflow"
 
-MongoClient.connect(url, function(err, db) {
-  if(err) throw err;
+var mongoUrl = process.env.MONGOURL || "mongodb://localhost/smackoverflow"
 
-  console.log("connected");
-
-  var collection = db.collection('test');
-  var docs = [{mykey:1}, {mykey:2}, {mykey:3}];
-
-  collection.insert(docs, {w:1}, function(err, result) {
-    collection.find().toArray(function(err, items) {});
-
-      var stream = collection.find({mykey:{$ne:2}}).stream();
-
-      stream.on("data", function(item) {
-          console.log("MongoDB Item: ");
-          console.log(item);
-      });
-
-      stream.on("end", function() {});
-
-      collection.findOne({mykey:1}, function(err, item) {});
-  });  
-})
+mongoose.connect(mongoUrl);
 
 var app = express();
 
@@ -56,7 +37,12 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+var smackController = require('./controllers/smackController.js');
+
 app.get('/', routes.index);
+app.post('/smack', smackController.create);
+app.get('/smacks', smackController.index);
+app.get('/smack/:id', smackController.show);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
