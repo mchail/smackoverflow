@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1 SmackOverflow
-  p Welcome to SmackOverflow
+	h1 SmackOverflow
+	#about
+		h3 Goodbye Cruel World!
+		p This is a user-submitted insult site focused on tech-related smack-downs. It's 100% free and we dare you to insult eachother!
+	#submit
+		h2 + Submit Smack
+	#tabs
+		ul
+			li: h3 Top
+			li: h3 New
+	.smack
+		span.upimg 
+			img(href="upvote.png")
+		span.votes 70
+		span.text Josh is dumb
